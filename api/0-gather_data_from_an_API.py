@@ -51,10 +51,8 @@ def display_todo_progress(employee_id, user_data, todo_data):
     num_completed_tasks = len(completed_tasks)
 
     print(f"Employee {employee_name} is done with tasks ({num_completed_tasks}/{total_tasks}):")
-    for task in todo_data:
-        task_title = task.get('title')
-        task_status = '✓' if task.get('completed', False) else '✗'
-        print(f"\t{task_status} {task_title}")
+    for task in completed_tasks:
+        print(f"\t{task.get('title')}")
 
 
 if __name__ == "__main__":
