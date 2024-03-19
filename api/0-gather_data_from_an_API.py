@@ -10,10 +10,10 @@ import sys
 def fetch_employee_data(employee_id):
     """
     Fetches user and TODO data from the REST API.
-    
+
     Args:
         employee_id (int): The ID of the employee.
-        
+
     Returns:
         tuple: A tuple containing user data and TODO data.
     """
@@ -39,7 +39,7 @@ def fetch_employee_data(employee_id):
 def display_todo_progress(employee_id, user_data, todo_data):
     """
     Displays the employee's TODO list progress.
-    
+
     Args:
         employee_id (int): The ID of the employee.
         user_data (dict): User data.
@@ -51,8 +51,10 @@ def display_todo_progress(employee_id, user_data, todo_data):
     num_completed_tasks = len(completed_tasks)
 
     print(f"Employee {employee_name} is done with tasks ({num_completed_tasks}/{total_tasks}):")
-    for task in completed_tasks:
-        print(f"\t{task.get('title')}")
+    for task in todo_data:
+        task_title = task.get('title')
+        task_status = '✓' if task.get('completed', False) else '✗'
+        print(f"\t{task_status} {task_title}")
 
 
 if __name__ == "__main__":
