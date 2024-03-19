@@ -6,6 +6,7 @@ This script fetches data from a REST API to display an employee's TODO list prog
 import requests
 import sys
 
+
 def fetch_employee_data(employee_id):
     """
     Fetches user and TODO data from the REST API.
@@ -34,6 +35,7 @@ def fetch_employee_data(employee_id):
         print(f"Error fetching data: {e}")
         sys.exit(1)
 
+
 def display_todo_progress(employee_id, user_data, todo_data):
     """
     Displays the employee's TODO list progress.
@@ -51,6 +53,7 @@ def display_todo_progress(employee_id, user_data, todo_data):
     print(f"Employee {employee_name} is done with tasks ({num_completed_tasks}/{total_tasks}):")
     for task in completed_tasks:
         print(f"\t{task.get('title')}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2 or not sys.argv[1].isdigit():
